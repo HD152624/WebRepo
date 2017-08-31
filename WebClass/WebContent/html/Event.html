@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<style>
+.bgYellow { background-color: yellow};
+.bgBlue {background-color: blue};
+.bgWhite {background-color: white};
+.border {border: 3px solid red};
+</style>
+<script>
+function changeColor(color) {
+	var c = document.getElementById("container");
+	//c.style.backgroundColor = color;
+	c.setAttribute("class", color); // <p id="container" class="bgYellow">
+}
+function toUpperCase(e) {
+	//e.value = e.value.toUpperCase();
+	e.value = e.value.toUpperCase();
+}
+function addBorder(e) {
+	//e.style.border = "3px solid red";
+	e.setAttribute("class", "border");
+}
+function removeBorder(e) {
+	//e.style.border="";
+	e.removeAttribute("class");
+}
+</script>
+</head>
+<body onload = "alert('웹 페이지 로딩됨');">
+<div id="container" >
+	노랑 <input type="radio" name="color" onclick="changeColor('bgYellow');">
+	파랑 <input type="radio" name="color" onclick="changeColor('bgBlue');">
+	하양 <input type="radio" name="color" onclick="changeColor('bgWhite');">
+	<br>
+	<input type="text" id="word" onchange="toUpperCase(this);">
+	<br>
+	<div id = "box" onmouseover="addBorder(this);" onmouseout="removeBorder(this);"> 마우스를 위에 올려놓으세요 </div>
+</div>
+</body>
+</html>
