@@ -32,9 +32,9 @@
 			<form class="form-inline my-2 my-lg-0">
 				<div class="btn-group" role="group" aria-label="Basic example">
 				<%UserVo user = (UserVo)(session.getAttribute("user")); if(user==null || user.getName()==null){ %>
-					<a href="/WebClass/bloglogin">Sign in</a>
+					<a href="WebClass/bloglogin">Sign in</a>
 				<%} else { %>
-				<a href="/WebClass/bloglogout">Sign out</a>
+				<a href="WebClass/bloglogout">Sign out</a>
 				<%} %>
 				</div>
 			</form>
