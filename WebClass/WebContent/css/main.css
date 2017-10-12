@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+#void {
+	width: 20px;
+}
+div.container {
+	padding-top: 30px;
+	padding-bottom: 20px;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+#accordion {
+	padding-left: 20px;
+	padding-top: 20px;
+	padding-right: 20px;
+}
+
+
+.liketitle {
+	padding-top: 50px;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+
+body {
+	color: white;
+	 background-color:#ffffff;
+}
+
+.f {
+	color: white;
+}
+
+.col-sm-6 {
+	padding-top: 20px;
+	padding-left: 30px;
+	padding-right: 30px;
+}

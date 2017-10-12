@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.dimigo.vo.UserVO;
+import org.dimigo.vo.UserVo;
 import org.json.simple.JSONObject;
 
 import com.google.gson.Gson;
@@ -59,8 +59,8 @@ public class BlogLoginServlet extends HttpServlet {
 			UserVo user = new UserVo();
 			user.setId(id);
 			user.setPw(pw);
-			user.setName("È«±æµ¿");
-			user.setNick("ÀÇÀû");
+			user.setName("관리자");
+			user.setNick("관리자");
 			session.setAttribute("user", user);
 			RequestDispatcher rd = request.getRequestDispatcher("myblog/home.jsp");
 			rd.forward(request, response);

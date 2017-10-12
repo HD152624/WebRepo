@@ -1,23 +1,23 @@
-@CHARSET "utf-8";
+@charset "utf-8";
 
-* {
-	color: blue;
-	text-align: center;
-}
-h1{
-	background-color: yellow;
-	border: 2px solid;
-}
-h3 {
+	* {
+		color: blue;
+		text-align: center;
+	}
+	h1 {
+		background-color: yellow;
+		border: 2px solid;
+	}
+	h3 {
 	color: pink;
 	text-align: right;
-}
-h1, h3 {
-	text-decoration: underline;
-}
-#text1 {
+	}
+	#text1 {
 	font-weight: bold;
-}
-.text2 {
+	}
+	.text2 {
 	font-style: italic;
-}
+	}
+	h1, h3 {
+	text-decoration: underline;
+	}

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="org.dimigo.vo.UserVO" %>
+<%@ page import="org.dimigo.vo.UserVo" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -27,42 +27,35 @@ function menu_out(e) {
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Home</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+	<nav class="navbar navbar-expand-lg navbar-light"
+		style="background-color: #24adaf;">
+		<a class="navbar-brand" href="/WebClass/jsp/home.jsp"> Home 
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-  	<%@ include file="menu.jsp" %>
-  	
-    <%-- 세션이 없는 경우 --%>
-    <%
-    UserVO user = (UserVO)(session.getAttribute("user"));
-    if(user==null) {
-    %>
-    	<a class="text-bold text-white" style="text-decoration: none" href="/WebClass/login">Sign in</a>
-    	<span class="text-bold text-white">&nbsp; or &nbsp;</span>
-    	<a class="text-bold text-white" style="text-decoration: none" href="/WebClass/signup2">Sign up</a>
-    	<%} else { %>
-    <%-- 세션이 있는 경우 --%>
-	    <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
-	    <li class="nav-item dropdown">
-	      <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="bd-versions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	    	<%=user.getName() %>님
-	      </a>
-	      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bd-versions">
-	      <form action="/WebClass/logout">
-	      	<button type="submit" class="dropdown-item">Sign out</button>
-	       	</form><div class="dropdown-divider"></div>
-	        <button type="button" class="dropdown-item">Action1</button>
-	        <button type="button" class="dropdown-item">Action2</button>
-	      </div>
-	    </li>
-	    </ul>
-	    <%} %>
-  </div>
-</nav>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item"><a class="nav-link" href="/WebClass/myblog/Introduce.html">소개</a></li>
+				<li class="nav-item"><a class="nav-link" href="/WebClass/myblog/Dream.html">꿈</a></li>
+				<li class="nav-item"><a class="nav-link" href="/WebClass/myblog/Photo.html">사진</a></li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0">
+				<div class="btn-group" role="group" aria-label="Basic example">
+				<%UserVo user = (UserVo)(session.getAttribute("user")); if(user==null || user.getName()==null){ %>
+					<a href="/WebClass/bloglogin">Sign in</a>
+				<%} else { %>
+				<a href="/WebClass/bloglogout">Sign out</a>
+				<%} %>
+				</div>
+			</form>
+		</div>
+	</nav>
+
 <div class="container">
 <h1>Hello, Bootstrap</h1>
 <p>

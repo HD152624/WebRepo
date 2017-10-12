@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page import="org.dimigo.vo.UserVo" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,20 +13,22 @@
 <body>
 <div class="container">
 
-  <form id="signupForm" class="form-signin" action="" method="post">
+<%UserVo user = (UserVo)session.getAttribute("user"); %>
+
+  <form id="signupForm" class="form-signin" action="/WebClass/signup" method="post">
     <h2 class="form-signin-heading">Please sign up</h2>
     
     <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="email" name="id" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+    <input type="email" name="id" id="email" class="form-control" placeholder="Email address" required autofocus <%if(user!=null) {%> value="<%=user.getId() %>" <%} %>>
     
     <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" name="pwd" id="inputPassword" class="form-control" placeholder="Password" required>
-	
+    <input type="password" name="pw" id="inputPassword" class="form-control" placeholder="Password" required <%if(user!=null) {%> value="<%=user.getPw() %>" <%} %>>
+		
 	<label for="inputName" class="sr-only">Name</label>
-    <input type="text" name="name" id="inputName" class="form-control" placeholder="Name" required>
+    <input type="text" name="name" id="inputName" class="form-control" placeholder="Name" required  <%if(user!=null) {%> value="<%=user.getName() %>" <%} %>>
 	
 	<label for="inputNickName" class="sr-only">Nick Name</label>
-    <input type="text" name="nickname" id="inputNickName" class="form-control" placeholder="Nickname" required>
+    <input type="text" name="nickname" id="inputNickName" class="form-control" placeholder="Nickname" required <%if(user!=null) {%> value="<%=user.getNick() %>" <%} %>>
     <br>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
   </form>
@@ -38,11 +41,16 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
 <script>
-	<%-- 회원 가입이 실패한 경우 처리 추가 --%>
-		var myModal = $('#myModal');
+<%
+if(	"error".equals(request.getAttribute("msg"))) {
+%>		
+		var myModal = $('#mymodal');
 		myModal.find('.modal-title').text('Sign Up Error');
 		myModal.find('.modal-body').text('회원 가입 시 오류가 발생하였습니다.');
 		myModal.modal();
+<%
+	}
+%>
 </script>
 
 </body>
